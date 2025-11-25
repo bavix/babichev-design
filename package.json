@@ -1,6 +1,6 @@
 {
   "name": "@bavix/babichev-design",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Pixel-style design system built with React, TypeScript, and Tailwind CSS",
   "type": "module",
   "main": "./dist/index.js",

@@ -135,7 +135,8 @@ export const Error429: Story = {
   args: {
     code: 429,
     title: 'Too Many Requests',
-    description: 'You have sent too many requests in a given amount of time. Please try again later.',
+    description:
+      'You have sent too many requests in a given amount of time. Please try again later.',
     characterUrl: error429Svg,
     characterAlt: 'Too Many Requests',
     info: [

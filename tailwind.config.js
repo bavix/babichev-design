@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./.storybook/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './.storybook/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -35,10 +32,10 @@ export default {
         pixel: ['Courier New', 'monospace'],
       },
       animation: {
-        'blink': 'blink 1s step-end infinite',
+        blink: 'blink 1s step-end infinite',
         'fade-in': 'fadeIn 0.3s ease-in',
         'error-pulse': 'error-pulse 2s ease-in-out infinite',
-        'float': 'float 3s ease-in-out infinite',
+        float: 'float 3s ease-in-out infinite',
         'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
       },
       keyframes: {
@@ -70,10 +67,14 @@ export default {
         },
       },
       screens: {
-        'xs': '475px',
+        xs: '475px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
       },
     },
   },
   plugins: [],
 };
-

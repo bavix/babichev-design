@@ -25,8 +25,16 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     if (typeof window === 'undefined') {
       return defaultTheme;
     }
+
+    // Проверяем сохраненную тему
     const stored = localStorage.getItem(storageKey) as Theme | null;
-    return stored || defaultTheme;
+    if (stored) {
+      return stored;
+    }
+
+    // Если нет сохраненной темы, используем системную
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
   });
 
   useEffect(() => {
@@ -40,6 +48,23 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
       localStorage.setItem(storageKey, theme);
     }
   }, [theme, storageKey]);
+
+  // Слушаем изменения системной темы, только если тема не была выбрана вручную
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      // Применяем системную тему только если пользователь не выбрал вручную
+      const hasManualTheme = localStorage.getItem(storageKey);
+      if (!hasManualTheme) {
+        setThemeState(e.matches ? 'dark' : 'light');
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [storageKey]);
 
   const setTheme = useCallback((newTheme: Theme) => {
     setThemeState(newTheme);

@@ -1,6 +1,6 @@
 {
   "name": "@bavix/babichev-design",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Pixel-style design system built with React, TypeScript, and Tailwind CSS",
   "type": "module",
   "main": "./dist/index.js",
@@ -34,8 +34,10 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
-    "build:css": "mkdir -p dist/styles && npx postcss ./src/styles/main.css -o ./dist/styles/main.css --minify",
+    "build:css": "mkdir -p dist/styles && NODE_ENV=production npx postcss ./src/styles/main.css -o ./dist/styles/main.css",
     "build:css:watch": "mkdir -p dist/styles && npx postcss ./src/styles/main.css -o ./dist/styles/main.css --watch",
+    "build:lib": "tsc -p tsconfig.build.json && vite build",
+    "prepublishOnly": "NODE_ENV=production npm run build:css && npm run build:lib",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
@@ -54,9 +56,11 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.0.8",
+    "@storybook/addon-docs": "^10.0.8",
     "@storybook/addon-links": "^10.0.8",
     "@storybook/addon-themes": "^10.0.8",
     "@storybook/react-vite": "^10.0.8",
+    "@tailwindcss/postcss": "^4.1.17",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -67,13 +71,15 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.0.4",
     "@vitest/ui": "^1.0.4",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.22",
+    "cssnano": "^7.1.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "10.0.8",
     "husky": "^8.0.3",
     "jsdom": "^23.0.1",
     "lint-staged": "^15.2.0",
@@ -81,12 +87,9 @@
     "postcss-cli": "^11.0.1",
     "prettier": "^3.1.1",
     "storybook": "^10.0.8",
-    "@tailwindcss/postcss": "^4.1.17",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.3.0",
     "vite": "^5.0.0",
-    "vitest": "^1.0.4",
-    "eslint-plugin-storybook": "10.0.8",
-    "@storybook/addon-docs": "^10.0.8"
+    "vitest": "^1.0.4"
   }
 }

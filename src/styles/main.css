@@ -5,6 +5,7 @@
 
 @source "../**/*.{js,jsx,ts,tsx}";
 @source "../../.storybook/**/*.{js,jsx,ts,tsx}";
+@source "./safelist.html";
 
 @theme {
   --color-pixel-bg-dark: #000000;
@@ -65,7 +66,7 @@
     text-transform: uppercase;
   }
 
-  @media (width >= 40rem) {
+  @media (min-width: 640px) {
     .prose h1 {
       @apply text-3xl;
     }
@@ -77,7 +78,7 @@
     text-transform: uppercase;
   }
 
-  @media (width >= 40rem) {
+  @media (min-width: 640px) {
     .prose h2 {
       @apply text-2xl;
     }
@@ -88,7 +89,7 @@
     text-transform: uppercase;
   }
 
-  @media (width >= 40rem) {
+  @media (min-width: 640px) {
     .prose h3 {
       @apply text-xl;
     }
@@ -393,7 +394,7 @@
   }
 
   .pixel-button {
-    @apply border-2 font-bold;
+    @apply border-2 font-bold px-4 py-2;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
     transition: all 0.2s ease;

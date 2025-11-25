@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import './tokens.css';
 
 @config "../../tailwind.config.js";
 
@@ -456,22 +455,22 @@
 
   .light .pixel-button {
     @apply bg-pixel-bg-light-light text-pixel-text-light;
-    border-color: var(--pixel-border);
+    border-color: var(--color-pixel-border-light);
     background-color: #ffffff;
     color: #064e3b;
   }
 
   .light .pixel-button:hover:not(:disabled) {
-    background-color: var(--pixel-border);
+    background-color: var(--color-pixel-border-light);
     color: #ffffff;
-    border-color: var(--pixel-border);
+    border-color: var(--color-pixel-border-light);
     box-shadow: var(--pixel-shadow-md);
   }
 
   .light .pixel-button.active {
-    background-color: var(--pixel-border);
+    background-color: var(--color-pixel-border-light);
     color: #ffffff;
-    border-color: var(--pixel-border);
+    border-color: var(--color-pixel-border-light);
   }
 
   .light .pixel-button-primary {

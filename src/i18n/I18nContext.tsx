@@ -124,7 +124,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
         format && config?.dateFormats?.[format] ? config.dateFormats[format] : undefined;
       return formatDateUtil(date, locale, options);
     },
-    [locale, config?.dateFormats]
+    [locale, config]
   );
 
   const formatNumber = useCallback(
@@ -133,7 +133,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
         format && config?.numberFormats?.[format] ? config.numberFormats[format] : undefined;
       return formatNumberUtil(value, locale, options);
     },
-    [locale, config?.numberFormats]
+    [locale, config]
   );
 
   const formatCurrency = useCallback(

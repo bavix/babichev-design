@@ -60,20 +60,38 @@
   }
 
   .prose h1 {
-    @apply text-2xl sm:text-3xl font-bold mb-4 mt-6;
+    @apply text-2xl font-bold mb-4 mt-6;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
+  }
+
+  @media (width >= 40rem) {
+    .prose h1 {
+      @apply text-3xl;
+    }
   }
 
   .prose h2 {
-    @apply text-xl sm:text-2xl font-bold mb-3 mt-5;
+    @apply text-xl font-bold mb-3 mt-5;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
   }
 
+  @media (width >= 40rem) {
+    .prose h2 {
+      @apply text-2xl;
+    }
+  }
+
   .prose h3 {
-    @apply text-lg sm:text-xl font-bold mb-3 mt-4;
+    @apply text-lg font-bold mb-3 mt-4;
     text-transform: uppercase;
+  }
+
+  @media (width >= 40rem) {
+    .prose h3 {
+      @apply text-xl;
+    }
   }
 
   .prose p {
@@ -586,9 +604,15 @@
   }
 
   .error-page {
-    @apply border-2 p-6 sm:p-8;
+    @apply border-2 p-6;
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
     min-height: 400px;
+  }
+
+  @media (width >= 40rem) {
+    .error-page {
+      @apply p-8;
+    }
   }
 
   .dark .error-page {
@@ -642,10 +666,16 @@
   }
 
   .error-title {
-    @apply text-2xl sm:text-3xl font-bold mb-4 text-center;
+    @apply text-2xl font-bold mb-4 text-center;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  @media (width >= 40rem) {
+    .error-title {
+      @apply text-3xl;
+    }
   }
 
   .error-description {
@@ -687,7 +717,13 @@
   }
 
   .error-actions {
-    @apply flex flex-col sm:flex-row gap-3 justify-center;
+    @apply flex flex-col gap-3 justify-center;
+  }
+
+  @media (width >= 40rem) {
+    .error-actions {
+      @apply flex-row;
+    }
   }
 
   .error-403 .error-code-number {
@@ -831,7 +867,13 @@
   }
 
   .error-layout-split {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 items-center;
+    @apply grid grid-cols-1 gap-6 items-center;
+  }
+
+  @media (width >= 48rem) {
+    .error-layout-split {
+      @apply grid-cols-2;
+    }
   }
 
   .error-layout-stacked {

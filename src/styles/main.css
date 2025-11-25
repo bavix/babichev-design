@@ -44,28 +44,17 @@
     min-height: 100vh;
   }
 
-  /* Theme styles for when class is directly on element */
-  .dark {
-    @apply bg-pixel-bg-dark text-pixel-text-dark;
+  /* Theme styles - Clean approach without !important */
+  html.dark {
+    background-color: var(--color-pixel-bg-dark);
     background: #000000;
+    color: var(--color-pixel-text-dark);
   }
 
-  .light {
-    @apply bg-pixel-bg-light text-pixel-text-light;
+  html.light {
+    background-color: var(--color-pixel-bg-light);
     background: #fafafa;
-  }
-
-  /* Theme styles for when class is on html element */
-  html.dark,
-  html.dark body {
-    @apply bg-pixel-bg-dark text-pixel-text-dark;
-    background: #000000;
-  }
-
-  html.light,
-  html.light body {
-    @apply bg-pixel-bg-light text-pixel-text-light;
-    background: #fafafa;
+    color: var(--color-pixel-text-light);
   }
 
   .prose {

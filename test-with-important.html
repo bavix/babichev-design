@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Test - Important Flags</title>
+    <style>
+      /* Simulating Tailwind base layer */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+
+      /* Test 1: WITH !important (current approach) */
+      html.dark {
+        background-color: #000000 !important;
+        color: #22c55e !important;
+      }
+
+      html.light {
+        background-color: #fafafa !important;
+        color: #064e3b !important;
+      }
+    </style>
+    <script>
+      function toggleTheme() {
+        const html = document.documentElement;
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          document.getElementById('status').textContent = 'Current: LIGHT theme';
+        } else {
+          html.classList.remove('light');
+          html.classList.add('dark');
+          document.getElementById('status').textContent = 'Current: DARK theme';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="padding: 2rem">
+      <h1 style="font-size: 2rem; margin-bottom: 1rem">Theme Toggle Test - WITH !important</h1>
+      <p id="status" style="margin-bottom: 1rem; font-weight: bold">Current: DARK theme</p>
+      <button
+        onclick="toggleTheme()"
+        style="
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          font-family: 'Courier New', monospace;
+          text-transform: uppercase;
+          border: 2px solid currentColor;
+          background: transparent;
+          color: inherit;
+        "
+      >
+        Toggle Theme
+      </button>
+      <p style="margin-top: 1rem">
+        If the background and text color change when you click the button, the theme toggle works
+        correctly.
+      </p>
+      <p style="margin-top: 0.5rem; font-style: italic; opacity: 0.8">
+        This version uses !important flags.
+      </p>
+    </div>
+  </body>
+</html>

@@ -44,12 +44,26 @@
     min-height: 100vh;
   }
 
+  /* Theme styles for when class is directly on element */
   .dark {
     @apply bg-pixel-bg-dark text-pixel-text-dark;
     background: #000000;
   }
 
   .light {
+    @apply bg-pixel-bg-light text-pixel-text-light;
+    background: #fafafa;
+  }
+
+  /* Theme styles for when class is on html element */
+  html.dark,
+  html.dark body {
+    @apply bg-pixel-bg-dark text-pixel-text-dark;
+    background: #000000;
+  }
+
+  html.light,
+  html.light body {
     @apply bg-pixel-bg-light text-pixel-text-light;
     background: #fafafa;
   }

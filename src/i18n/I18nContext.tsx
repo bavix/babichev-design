@@ -6,6 +6,7 @@ import type {
   TranslationParams,
   I18nContextValue,
   I18nConfig,
+  TranslationObject,
 } from './types';
 import {
   getNestedValue,
@@ -83,31 +84,34 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
       const fallbackTranslations = allTranslations[fallbackLocale] || {};
       const defaultTranslationsObj = allTranslations[defaultLocale] || {};
 
-      let translationValue: any;
+      let translationValue: string | TranslationObject | undefined;
 
-      const englishTranslations = defaultTranslations['en'];
+      const englishTranslations = defaultTranslations['en'] || {};
 
       if (params?.count !== undefined) {
         const pluralKey = getPluralKey(key, params.count, locale, pluralRules);
         translationValue =
-          getNestedValue(currentTranslations as any, pluralKey) ||
-          getNestedValue(fallbackTranslations as any, pluralKey) ||
-          getNestedValue(defaultTranslationsObj as any, pluralKey) ||
-          getNestedValue(englishTranslations as any, pluralKey) ||
-          getNestedValue(currentTranslations as any, key) ||
-          getNestedValue(fallbackTranslations as any, key) ||
-          getNestedValue(defaultTranslationsObj as any, key) ||
-          getNestedValue(englishTranslations as any, key);
+          getNestedValue(currentTranslations, pluralKey) ||
+          getNestedValue(fallbackTranslations, pluralKey) ||
+          getNestedValue(defaultTranslationsObj, pluralKey) ||
+          getNestedValue(englishTranslations, pluralKey) ||
+          getNestedValue(currentTranslations, key) ||
+          getNestedValue(fallbackTranslations, key) ||
+          getNestedValue(defaultTranslationsObj, key) ||
+          getNestedValue(englishTranslations, key);
       } else {
         translationValue =
-          getNestedValue(currentTranslations as any, key) ||
-          getNestedValue(fallbackTranslations as any, key) ||
-          getNestedValue(defaultTranslationsObj as any, key) ||
-          getNestedValue(englishTranslations as any, key);
+          getNestedValue(currentTranslations, key) ||
+          getNestedValue(fallbackTranslations, key) ||
+          getNestedValue(defaultTranslationsObj, key) ||
+          getNestedValue(englishTranslations, key);
       }
 
       if (!translationValue || typeof translationValue !== 'string') {
-        if (typeof window !== 'undefined' && (window as any).__DEV__ !== false) {
+        if (
+          typeof window !== 'undefined' &&
+          (window as Window & { __DEV__?: boolean }).__DEV__ !== false
+        ) {
           console.warn(`[i18n] Translation missing for key: ${key} (locale: ${locale})`);
         }
         return key;

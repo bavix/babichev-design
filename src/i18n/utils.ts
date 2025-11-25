@@ -1,17 +1,21 @@
 import type { TranslationObject, TranslationParams, Locale, PluralRules } from './types';
 
 export function getNestedValue(
-  obj: TranslationObject | Record<string, any>,
+  obj: TranslationObject | Record<string, unknown>,
   path: string
 ): string | TranslationObject | undefined {
   const keys = path.split('.');
-  let current: any = obj;
+  let current: TranslationObject | Record<string, unknown> | string | undefined = obj;
 
   for (const key of keys) {
     if (current === null || current === undefined || typeof current !== 'object') {
       return undefined;
     }
-    current = current[key];
+    current = (current as Record<string, unknown>)[key] as
+      | TranslationObject
+      | Record<string, unknown>
+      | string
+      | undefined;
   }
 
   if (typeof current === 'string') {

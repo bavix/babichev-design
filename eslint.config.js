@@ -50,7 +50,10 @@ export default [
       ...jsxA11y.configs.recommended.rules,
       ...storybook.configs.recommended.rules,
       ...prettier.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true, allowExportNames: ['useTheme', 'useI18n'] },
+      ],
       'react/prop-types': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

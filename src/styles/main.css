@@ -1,8 +1,33 @@
+@import 'tailwindcss';
 @import './tokens.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.js";
+
+@source "../**/*.{js,jsx,ts,tsx}";
+@source "../../.storybook/**/*.{js,jsx,ts,tsx}";
+
+@theme {
+  --color-pixel-bg-dark: #000000;
+  --color-pixel-bg-dark-dark: #0a0a0a;
+  --color-pixel-bg-dark-light: #1a1a1a;
+  --color-pixel-border-dark: #22c55e;
+  --color-pixel-border-dark-light: #4ade80;
+  --color-pixel-text-dark: #22c55e;
+  --color-pixel-text-dark-muted: #16a34a;
+  --color-pixel-accent-dark: #eab308;
+  --color-pixel-accent-dark-dark: #ca8a04;
+  --color-pixel-bg-light: #fafafa;
+  --color-pixel-bg-light-dark: #f0f0f0;
+  --color-pixel-bg-light-light: #ffffff;
+  --color-pixel-border-light: #065f46;
+  --color-pixel-border-light-light: #047857;
+  --color-pixel-text-light: #064e3b;
+  --color-pixel-text-light-muted: #065f46;
+  --color-pixel-accent-light: #c2410c;
+  --color-pixel-accent-light-dark: #9a3412;
+  --font-family-pixel: 'Courier New', monospace;
+  --breakpoint-xs: 475px;
+}
 
 @layer base {
   * {
@@ -561,8 +586,21 @@
   }
 
   .error-page {
-    @apply pixel-box p-6 sm:p-8;
+    @apply border-2 p-6 sm:p-8;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
     min-height: 400px;
+  }
+
+  .dark .error-page {
+    @apply bg-pixel-bg-dark-dark border-pixel-border-dark;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
+  }
+
+  .light .error-page {
+    @apply bg-pixel-bg-light-light;
+    border-color: var(--pixel-border);
+    box-shadow: var(--pixel-shadow-sm);
+    background-color: #ffffff;
   }
 
   .error-character-wrapper {
@@ -586,7 +624,10 @@
   }
 
   .error-code-number {
-    @apply font-bold pixel-text;
+    @apply font-bold;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     font-size: 7rem;
     line-height: 0.9;
     margin-bottom: 1rem;
@@ -601,7 +642,10 @@
   }
 
   .error-title {
-    @apply text-2xl sm:text-3xl font-bold pixel-text mb-4 text-center;
+    @apply text-2xl sm:text-3xl font-bold mb-4 text-center;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .error-description {
@@ -617,7 +661,20 @@
   }
 
   .error-info-box {
-    @apply pixel-box p-4 mb-6;
+    @apply border-2 p-4 mb-6;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
+  }
+
+  .dark .error-info-box {
+    @apply bg-pixel-bg-dark-dark border-pixel-border-dark;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
+  }
+
+  .light .error-info-box {
+    @apply bg-pixel-bg-light-light;
+    border-color: var(--pixel-border);
+    box-shadow: var(--pixel-shadow-sm);
+    background-color: #ffffff;
   }
 
   .dark .error-info-box {
@@ -782,7 +839,10 @@
   }
 
   .error-badge {
-    @apply inline-block px-3 py-1 border text-xs pixel-text;
+    @apply inline-block px-3 py-1 border text-xs;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .dark .error-badge {

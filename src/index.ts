@@ -4,6 +4,12 @@ export type { ButtonProps } from './components/Button';
 export { Box } from './components/Box';
 export type { BoxProps } from './components/Box';
 
+export { Input } from './components/Input';
+export type { InputProps } from './components/Input';
+
+export { Label } from './components/Label';
+export type { LabelProps } from './components/Label';
+
 export { Typography } from './components/Typography';
 export type { TypographyProps } from './components/Typography';
 

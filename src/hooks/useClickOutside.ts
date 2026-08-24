@@ -2,7 +2,7 @@ import { useEffect, RefObject } from 'react';
 import { isBrowser } from '../utils/ssr';
 
 export function useClickOutside<T extends HTMLElement>(
-  ref: RefObject<T>,
+  ref: RefObject<T | null>,
   handler: (event: MouseEvent | TouchEvent) => void
 ): void {
   useEffect(() => {

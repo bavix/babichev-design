@@ -12,10 +12,7 @@ export function getNestedValue(
       return undefined;
     }
     current = (current as Record<string, unknown>)[key] as
-      | TranslationObject
-      | Record<string, unknown>
-      | string
-      | undefined;
+      TranslationObject | Record<string, unknown> | string | undefined;
   }
 
   if (typeof current === 'string') {

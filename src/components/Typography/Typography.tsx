@@ -3,18 +3,7 @@ import { cn } from '../../utils/cn';
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   variant?:
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'p'
-    | 'span'
-    | 'div'
-    | 'label'
-    | 'code'
-    | 'pre';
+    'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'label' | 'code' | 'pre';
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   pixel?: boolean;
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';

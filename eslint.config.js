@@ -11,6 +11,7 @@ import globals from 'globals';
 
 export default [
   js.configs.recommended,
+  ...storybook.configs['flat/recommended'],
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
@@ -35,11 +36,10 @@ export default [
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       'react-refresh': reactRefresh,
-      storybook: storybook,
     },
     settings: {
       react: {
-        version: 'detect',
+        version: '19.2',
       },
     },
     rules: {
@@ -48,7 +48,6 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
-      ...storybook.configs.recommended.rules,
       ...prettier.rules,
       'react-refresh/only-export-components': [
         'warn',

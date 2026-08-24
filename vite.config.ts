@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: new URL('src/index.ts', import.meta.url).pathname,
       name: 'BabichevDesign',
       formats: ['es'],
       fileName: (format) => `index.${format === 'es' ? 'js' : format}`,

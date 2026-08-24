@@ -18,14 +18,9 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src", ".storybook", "src/**/*.test.ts", "src/**/*.test.tsx", "src/vite-env.d.ts"],
   "exclude": ["node_modules", "dist", "storybook-static"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-

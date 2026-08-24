@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from './Input';
 import { User, Lock, Search } from 'lucide-react';
 
@@ -42,7 +42,7 @@ export const Default: Story = {
 export const WithLabel: Story = {
   render: (args) => (
     <div className="space-y-2">
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      {}
       <label htmlFor="username-default" className="pixel-text text-sm font-bold">
         USERNAME
       </label>
@@ -58,7 +58,7 @@ export const WithIcons: Story = {
   render: (args) => (
     <div className="space-y-4">
       <div className="space-y-2">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        {}
         <label htmlFor="username-icons" className="pixel-text text-sm font-bold">
           USERNAME
         </label>
@@ -70,7 +70,7 @@ export const WithIcons: Story = {
         />
       </div>
       <div className="space-y-2">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        {}
         <label htmlFor="password-icons" className="pixel-text text-sm font-bold">
           PASSWORD
         </label>
@@ -83,7 +83,7 @@ export const WithIcons: Story = {
         />
       </div>
       <div className="space-y-2">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        {}
         <label htmlFor="search-icons" className="pixel-text text-sm font-bold">
           SEARCH
         </label>
